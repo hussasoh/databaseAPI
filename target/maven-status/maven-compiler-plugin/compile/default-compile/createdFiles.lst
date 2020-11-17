@@ -1,0 +1,13 @@
+com/farmer/database/farmerdb/Repositories/CustomerRepository.class
+com/farmer/database/farmerdb/Entities/Farmer.class
+com/farmer/database/farmerdb/Entities/Customer.class
+com/farmer/database/farmerdb/FarmerdbApplication.class
+com/farmer/database/farmerdb/Entities/Product.class
+com/farmer/database/farmerdb/Controllers/ProductController.class
+com/farmer/database/farmerdb/Controllers/CustomerController.class
+com/farmer/database/farmerdb/Repositories/FarmerRepository.class
+com/farmer/database/farmerdb/Repositories/ProductRepository.class
+com/farmer/database/farmerdb/Services/ProductService.class
+com/farmer/database/farmerdb/Services/FarmerService.class
+com/farmer/database/farmerdb/Controllers/FarmerController.class
+com/farmer/database/farmerdb/Services/CustomerService.class
