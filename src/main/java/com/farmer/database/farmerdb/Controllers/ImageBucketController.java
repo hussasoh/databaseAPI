@@ -27,7 +27,7 @@ public class ImageBucketController {
         return amazonClient.uploadFile(file,CustomerID);
     }
 
-    @DeleteMapping("/deleteFile")
+    @PutMapping("/deleteFile")
     public String deleteFile(@RequestPart(value = "url") String fileUrl) {
         return this.amazonClient.deleteFileFromS3Bucket(fileUrl);
     }
