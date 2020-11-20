@@ -25,16 +25,6 @@ public class FarmerController {
         return farmerService.saveFarmers(farmers);
     }
 
-    @GetMapping("/Farmers")
-    public List<Farmer> getAllFarmers(){
-        return farmerService.getAllFarmers();
-    }
-
-    @GetMapping("/FarmerByName/{name}")
-    public List<Farmer> getFarmerByName(@PathVariable String name){
-        return farmerService.getFarmersByName(name);
-    }
-
     @GetMapping("/FarmerByID/{id}")
     public Farmer getFarmerByID(@PathVariable int id){
         return farmerService.getFarmerById(id);
@@ -45,11 +35,6 @@ public class FarmerController {
 
     @GetMapping ("CustomerByFarmerID/{id}")
     public Customer getCustomerByFarmerID(@PathVariable int id){ return farmerService.getCustomerByFarmerID(id); }
-
-    @PutMapping("/updateFarmer")
-    public Farmer updateFarmer(@RequestBody Farmer farmer){
-        return farmerService.updateFarmer(farmer);
-    }
 
     @PutMapping("/deleteFarmer/{id}")
     public String deleteFarmer(@PathVariable int id){

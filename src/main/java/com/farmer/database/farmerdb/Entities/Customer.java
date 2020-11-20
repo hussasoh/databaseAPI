@@ -17,5 +17,7 @@ public class Customer {
     public String CustomerEmail;
     @Column(name = "Customer_Password")
     public String CustomerPassword;
+    @Column(name = "Is_Farmer")
+    public boolean Is_Farmer;
 
 }

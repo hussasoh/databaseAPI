@@ -23,14 +23,18 @@ public class CustomerService {
         return customerRepository.saveAll(customers);
     }
 
-    //retrieve all Customers
+    //retrieve
+    //all Customers
     public List<Customer> getAllCustomers(){
         return customerRepository.findAll();
     }
+    //By ID
     public  Customer getCustomerById(int id){
         return customerRepository.findById(id).orElse(null);
     }
+    //By Name
     public List<Customer> getCustomerByName(String name){ return customerRepository.findByName(name); }
+    //By Email
     public Customer getCustomerByEmail(String email){
         return customerRepository.findByEmail(email);
     }
@@ -47,6 +51,7 @@ public class CustomerService {
         existingCustomer.CustomerName = customer.CustomerName;
         existingCustomer.CustomerEmail = customer.CustomerEmail;
         existingCustomer.CustomerPassword= customer.CustomerPassword;
+        existingCustomer.Is_Farmer = customer.Is_Farmer;
         return customerRepository.save(existingCustomer);
     }
 

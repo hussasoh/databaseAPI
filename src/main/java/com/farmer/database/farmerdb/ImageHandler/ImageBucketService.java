@@ -1,4 +1,4 @@
-package com.farmer.database.farmerdb.Services;
+package com.farmer.database.farmerdb.ImageHandler;
 
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
@@ -59,11 +59,24 @@ public class ImageBucketService {
         amazonS3.putObject(new PutObjectRequest(bucketName ,fileName,file).withCannedAcl(CannedAccessControlList.PublicRead));
     }
 
-    public String uploadFile(MultipartFile multipartFile,int CustomerID) {
+    public String uploadCustomerFile(MultipartFile multipartFile,int CustomerID) {
         String fileUrl = "";
         try {
             File file = convertMultiPartToFile(multipartFile);
             String fileName = generateFileName(multipartFile,"Customer" + CustomerID);
+            fileUrl = endpointUrl + fileName;
+            uploadFileToS3bucket(fileName, file);
+            file.delete();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return fileUrl;
+    }
+    public String uploadFarmFile(MultipartFile multipartFile,int FarmID) {
+        String fileUrl = "";
+        try {
+            File file = convertMultiPartToFile(multipartFile);
+            String fileName = generateFileName(multipartFile,"Farm" + FarmID);
             fileUrl = endpointUrl + fileName;
             uploadFileToS3bucket(fileName, file);
             file.delete();
@@ -97,7 +110,7 @@ public class ImageBucketService {
         throw null;
     }
 
-    public List<String> GetFolderImages(int CustomerID){
+    public List<String> GetCustomerFolderImages(int CustomerID){
         List<String> images = new ArrayList();
         ListObjectsRequest listObjectsRequest = new ListObjectsRequest()
                 .withBucketName(bucketName)
@@ -113,4 +126,19 @@ public class ImageBucketService {
         return images;
     }
 
+    public List<String> GetFarmFolderImages(int FarmID){
+        List<String> images = new ArrayList();
+        ListObjectsRequest listObjectsRequest = new ListObjectsRequest()
+                .withBucketName(bucketName)
+                .withPrefix("Farm"+FarmID)
+                .withMarker("Farm"+FarmID);
+
+        ObjectListing objectListing = amazonS3.listObjects(listObjectsRequest);
+
+        for(S3ObjectSummary summary: objectListing.getObjectSummaries()){
+            images.add(summary.getKey());
+        }
+
+        return images;
+    }
 }

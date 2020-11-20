@@ -35,12 +35,15 @@ public class FarmerService {
     public  Farmer getFarmerById(int id){
         return farmerRepository.findById(id).orElse(null);
     }
-    public List<Farmer> getFarmersByName(String name){ return farmerRepository.findByName(name); }
     public Farmer getFarmerByCustomerID(int id) {return farmerRepository.findByCustomerID(id);}
 
     public Customer getCustomerByFarmerID(int id){
-        int customerid = farmerRepository.getFarmerCustomerID(id);
-        return customerRepository.findById(customerid).orElse(null);
+        try {
+            int customerid = farmerRepository.getFarmerCustomerID(id);
+            return customerRepository.findById(customerid).orElse(null);
+        }catch (Exception ex){
+            return null;
+        }
     }
 
     //Delete
@@ -49,12 +52,4 @@ public class FarmerService {
         return "Farmer Removed! " + id;
     }
 
-    //Update
-    public Farmer updateFarmer(Farmer farmer){
-        Farmer existingFarmer = farmerRepository.findById(farmer.FarmerID).orElse(null);
-        existingFarmer.BusinessName = farmer.BusinessName;
-        existingFarmer.BusinessDescription = farmer.BusinessDescription;
-        existingFarmer.BusinessRating= farmer.BusinessRating;
-        return farmerRepository.save(existingFarmer);
-    }
 }

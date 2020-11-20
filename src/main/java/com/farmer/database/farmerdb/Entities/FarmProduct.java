@@ -3,17 +3,20 @@ package com.farmer.database.farmerdb.Entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Farmer_Products")
-public class FarmerProduct {
+@Table(name = "Farm_Products")
+public class FarmProduct {
 
     @Id
-    @Column(name = "FarmerProduct_ID")
+    @Column(name = "FarmProduct_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int FarmerProductID;
+    public int FarmProductID;
 
-    @Column(name = "Farmer_ID")
+    @Column(name = "Farm_ID")
     public int FarmerID;
 
     @Column(name = "Product_ID")
     public int ProductID;
+
+    @Column(name = "Quantity")
+    public int Quantity;
 }

@@ -9,10 +9,6 @@ public class Farmer{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Farmer_ID")
     public int FarmerID;
-    @Column(name = "Buisness_Name")
-    public String BusinessName;
-    @Column(name = "Business_Description")
-    public String BusinessDescription;
-    @Column(name = "Buisness_Rating")
-    public int BusinessRating;
+    @Column(name = "Customer_ID")
+    public int CustomerID;
 }

@@ -1,6 +1,5 @@
-package com.farmer.database.farmerdb.Controllers;
+package com.farmer.database.farmerdb.ImageHandler;
 
-import com.farmer.database.farmerdb.Services.ImageBucketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -22,9 +21,14 @@ public class ImageBucketController {
         this.amazonClient = imageBucketService;
     }
 
-    @PostMapping("/uploadFile/{CustomerID}")
-    public String uploadFileWithDirName(@RequestPart(value = "file")MultipartFile file,@PathVariable int CustomerID){
-        return amazonClient.uploadFile(file,CustomerID);
+    @PostMapping("/uploadCustomerFile/{CustomerID}")
+    public String uploadCustomerFileWithDirName(@RequestPart(value = "file")MultipartFile file,@PathVariable int CustomerID){
+        return amazonClient.uploadCustomerFile(file,CustomerID);
+    }
+
+    @PostMapping("/uploadFarmFile/{FarmID}")
+    public String uploadFarmFileWithDirName(@RequestPart(value = "file")MultipartFile file,@PathVariable int FarmID){
+        return amazonClient.uploadFarmFile(file,FarmID);
     }
 
     @PutMapping("/deleteFile")
@@ -34,7 +38,12 @@ public class ImageBucketController {
 
     @GetMapping("/GetImagesForCustomer/{id}")
     public List<String> getAllImagesOfCustomer(@PathVariable int id){
-        return amazonClient.GetFolderImages(id);
+        return amazonClient.GetCustomerFolderImages(id);
+    }
+
+    @GetMapping("/GetImagesForFarm/{id}")
+    public List<String> getAllImagesOfFarm(@PathVariable int id){
+        return amazonClient.GetFarmFolderImages(id);
     }
 
     @GetMapping("/download/{keyname}")
