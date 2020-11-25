@@ -12,7 +12,7 @@ public class FarmProduct {
     public int FarmProductID;
 
     @Column(name = "Farm_ID")
-    public int FarmerID;
+    public int FarmID;
 
     @Column(name = "Product_ID")
     public int ProductID;

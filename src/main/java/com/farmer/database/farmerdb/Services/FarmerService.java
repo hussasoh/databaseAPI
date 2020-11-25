@@ -29,9 +29,6 @@ public class FarmerService {
     }
 
     //retrieve all Farmers
-    public List<Farmer> getAllFarmers(){
-        return farmerRepository.findAll();
-    }
     public  Farmer getFarmerById(int id){
         return farmerRepository.findById(id).orElse(null);
     }

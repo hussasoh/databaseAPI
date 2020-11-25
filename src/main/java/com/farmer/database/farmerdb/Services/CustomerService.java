@@ -51,7 +51,7 @@ public class CustomerService {
         existingCustomer.CustomerName = customer.CustomerName;
         existingCustomer.CustomerEmail = customer.CustomerEmail;
         existingCustomer.CustomerPassword= customer.CustomerPassword;
-        existingCustomer.Is_Farmer = customer.Is_Farmer;
+        existingCustomer.IsFarmer = customer.IsFarmer;
         return customerRepository.save(existingCustomer);
     }
 

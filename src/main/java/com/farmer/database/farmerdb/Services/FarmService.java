@@ -34,15 +34,4 @@ public class FarmService {
         return farmRepository.getFarmsByFarmerID(id);
     }
 
-    public String  DeleteAllFarmsByFarmerID(int id){
-        String deleteIDs = "";
-        List<Farm> farms = farmRepository.getFarmsByFarmerID(id);
-
-        for (Farm f:farms) {
-            farmRepository.deleteById(f.Farm_ID);
-           deleteIDs +=  "deleted farm successfully! by id: " + id + "\n";
-        }
-
-        return deleteIDs;
-    }
 }

@@ -18,6 +18,5 @@ public class Customer {
     @Column(name = "Customer_Password")
     public String CustomerPassword;
     @Column(name = "Is_Farmer")
-    public boolean Is_Farmer;
-
+    public boolean IsFarmer;
 }

@@ -8,7 +8,7 @@ public class Farm {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Farm_ID")
-    public int Farm_ID;
+    public int FarmID;
     @Column(name = "Business_Name")
     public String Businsess_Name;
     @Column(name = "Business_Description")
@@ -26,5 +26,5 @@ public class Farm {
     @Column(name = "Unit")
     public int Unit;
     @Column(name = "Farmer_ID")
-    public int Farmer_ID;
+    public int FarmerID;
 }

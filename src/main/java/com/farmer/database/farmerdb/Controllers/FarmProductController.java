@@ -27,8 +27,13 @@ public class FarmProductController {
         return farmProductService.delete(id);
     }
 
+    @PutMapping("/deleteFarmProductByFarmIDAndProductID/{FarmID}/{ProductID}")
+    public String deleteFarmProductByFarmIDAndProductID(@PathVariable int FarmID,@PathVariable int ProductID){
+        return farmProductService.deleteFarmProductByFarmIDAndProductID(FarmID,ProductID);
+    }
+
     @PutMapping("/deleteAllFarmProductByFarmID/{id}")
-    public String deleteAllFarmersProductByFarmerID(@PathVariable int id) { return  farmProductService.deleteAllProductsOfFarmer(id);}
+    public String deleteAllFarmersProductByFarmerID(@PathVariable int id) { return  farmProductService.deleteAllProductsOfFarm(id);}
 
     @PutMapping("/deleteAllFarmProductByProductID/{id}")
     public String deleteAllFarmersProductByProductID(@PathVariable int id) { return  farmProductService.deleteAllFarmProductByProductID(id);}
@@ -38,5 +43,10 @@ public class FarmProductController {
 
     @GetMapping("/ProductsByFarmID/{id}")
     public List<Product> getProductsByFarmerID(@PathVariable int id){ return farmProductService.getProductsByFarm(id); }
+
+    @PutMapping("/UpdateFarmProductQuantity/{id}/{quantity}")
+    public FarmProduct updateQuantity(@PathVariable int id,@PathVariable int quantity){
+        return farmProductService.UpdateQuantity(id,quantity);
+    }
 
 }

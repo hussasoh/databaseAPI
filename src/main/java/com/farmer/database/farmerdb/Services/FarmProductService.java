@@ -29,12 +29,22 @@ public class FarmProductService {
 
     //Save one Farmer's Product
     public FarmProduct saveFarmProduct(FarmProduct farmProduct){
+        FarmProduct farmProduct1 = farmProductRepository.getFarmProductByFarmIDAndProductID(farmProduct.FarmID,farmProduct.ProductID);
+        if(farmProduct1 != null){
+            return null;
+        }
         return farmProductRepository.save(farmProduct);
     }
 
     //Save a list of Farmer's Products
     public List<FarmProduct> saveFarmProducts(List<FarmProduct> farmProducts){
-        return farmProductRepository.saveAll(farmProducts);
+        List<FarmProduct> refinedList = new ArrayList();
+        for (FarmProduct f: farmProducts) {
+            if(farmProductRepository.getFarmProductByFarmIDAndProductID(f.FarmID,f.ProductID) == null){
+                refinedList.add(f);
+            }
+        }
+        return farmProductRepository.saveAll(refinedList);
     }
 
     //retrieve Products By Farm
@@ -68,11 +78,11 @@ public class FarmProductService {
     }
 
     //Update
-    public FarmProduct UpdateQuantity(FarmProduct farmProduct){
-        FarmProduct existingfarmProduct = farmProductRepository.findById(farmProduct.FarmProductID).orElse(null);
+    public FarmProduct UpdateQuantity(int id,int quantity){
+        FarmProduct existingfarmProduct = farmProductRepository.findById(id).orElse(null);
         if (existingfarmProduct != null){
-            existingfarmProduct.Quantity = farmProduct.Quantity;
-            return  farmProductRepository.save(existingfarmProduct);
+            existingfarmProduct.Quantity = quantity;
+            return farmProductRepository.save(existingfarmProduct);
         }
         else{
             return null;
@@ -84,23 +94,16 @@ public class FarmProductService {
         farmProductRepository.deleteById(id);
         return "Farmer's Product removed! " + id;
     }
-    public String deleteAllProductsOfFarmer(int id){
-        List<Integer> farmerproductids = farmProductRepository.findFarmProductByFarmID(id);
-        String deletedIDs = "";
-        for (int farmerproductid: farmerproductids) {
-            farmProductRepository.deleteById(farmerproductid);
-            deletedIDs += "Deleted id: " + farmerproductid + "\n";
-        }
-       return  deletedIDs;
+    public String deleteFarmProductByFarmIDAndProductID(int FarmID,int ProductID){
+        return farmProductRepository.deleteFarmProductByFarmIDAndProductID(FarmID,ProductID);
+    }
+    public String deleteAllProductsOfFarm(int id){
+       farmProductRepository.deleteFarmProductByFarmID(id);
+       return "Successfully deleted all FarmProduct of FarmID: " + id;
     }
     public String deleteAllFarmProductByProductID(int id){
-        List<Integer> farmproductsbyproductids = farmProductRepository.findFarmProductByProductID(id);
-        String deleteIDs = "";
-        for(int farmproducts: farmproductsbyproductids){
-            farmProductRepository.deleteById(farmproducts);
-            deleteIDs += "Delete id: " + farmproducts + "\n";
-        }
-        return deleteIDs;
+        farmProductRepository.deleteFarmProductByProductID(id);
+        return "Successfully deleted all FarmProduct of ProductID: " + id;
     }
 
 }

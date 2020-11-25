@@ -1,7 +1,9 @@
 package com.farmer.database.farmerdb.Controllers;
 
 import com.farmer.database.farmerdb.Entities.Customer;
+import com.farmer.database.farmerdb.Entities.Farmer;
 import com.farmer.database.farmerdb.Services.CustomerService;
+import com.farmer.database.farmerdb.Services.FarmerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,14 +16,10 @@ public class CustomerController {
     private CustomerService customerService;
 
     @PostMapping("/addCustomer")
-    public Customer addCustomer(@RequestBody Customer customer){
-        return customerService.saveCustomer(customer);
-    }
+    public Customer addCustomer(@RequestBody Customer customer){ return customerService.saveCustomer(customer); }
 
     @PostMapping("/addCustomers")
-    public List<Customer> addCustomer(@RequestBody List<Customer> customer){
-        return customerService.saveCustomers(customer);
-    }
+    public List<Customer> addCustomer(@RequestBody List<Customer> customer){ return customerService.saveCustomers(customer); }
 
     @GetMapping("/Customers")
     public List<Customer> getAllCustomers(){
