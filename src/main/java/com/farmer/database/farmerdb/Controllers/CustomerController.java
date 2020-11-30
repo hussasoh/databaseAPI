@@ -16,7 +16,12 @@ public class CustomerController {
     private CustomerService customerService;
 
     @PostMapping("/addCustomer")
-    public Customer addCustomer(@RequestBody Customer customer){ return customerService.saveCustomer(customer); }
+    public Customer addCustomer(@RequestBody Customer customer){
+        if(customerService.getCustomerByEmail(customer.CustomerEmail) != null){
+            return null;
+        }
+        return customerService.saveCustomer(customer);
+    }
 
     @PostMapping("/addCustomers")
     public List<Customer> addCustomer(@RequestBody List<Customer> customer){ return customerService.saveCustomers(customer); }

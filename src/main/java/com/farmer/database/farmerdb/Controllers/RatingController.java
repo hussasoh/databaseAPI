@@ -31,6 +31,11 @@ public class RatingController {
         return ratingService.getAllCustomerRatings(id);
     }
 
+    @GetMapping("/getRatingByCustomerIDAndFarmID/{FarmID}/{CustomerID}")
+    public Rating getRatingByCustomerIDAndFarmID(@PathVariable int FarmID,@PathVariable int CustomerID){
+        return ratingService.getRatingByCustomerIDAndFarmID(FarmID,CustomerID);
+    }
+
     @PutMapping("/deleteRatingByCustomerIDAndFarmID/{FarmID}/{CustomerID}")
     public String deleteRatingByCustomerIDAndFarmID(@PathVariable int FarmID,@PathVariable int CustomerID){
         return ratingService.deleteRatingByCustomerIDAndFarmID(FarmID,CustomerID);

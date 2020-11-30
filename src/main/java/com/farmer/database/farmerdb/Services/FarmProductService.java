@@ -95,7 +95,8 @@ public class FarmProductService {
         return "Farmer's Product removed! " + id;
     }
     public String deleteFarmProductByFarmIDAndProductID(int FarmID,int ProductID){
-        return farmProductRepository.deleteFarmProductByFarmIDAndProductID(FarmID,ProductID);
+        farmProductRepository.deleteFarmProductByFarmIDAndProductID(FarmID,ProductID);
+        return "deleted!";
     }
     public String deleteAllProductsOfFarm(int id){
        farmProductRepository.deleteFarmProductByFarmID(id);

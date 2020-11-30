@@ -38,4 +38,8 @@ public class FarmController {
         return farmService.FarmsByFarmerID(id);
     }
 
+    @PutMapping("/UpdateFarm")
+    public Farm UpdateFarm(@RequestBody Farm farm){
+        return farmService.UpdateFarmByFarmID(farm);
+    }
 }

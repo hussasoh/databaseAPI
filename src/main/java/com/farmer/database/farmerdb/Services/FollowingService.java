@@ -57,7 +57,10 @@ public class FollowingService {
     }
 
     //delete
-    public String deleteFollowByCustomerIDandFarmID(int FarmID,int CustomerID){ return followingRepository.deleteFollowByCustomerIDAndFarmID(FarmID,CustomerID);}
+    public String deleteFollowByCustomerIDandFarmID(int FarmID,int CustomerID){
+        followingRepository.deleteFollowByCustomerIDAndFarmID(FarmID,CustomerID);
+        return  "deleted!";
+    }
 
 
 

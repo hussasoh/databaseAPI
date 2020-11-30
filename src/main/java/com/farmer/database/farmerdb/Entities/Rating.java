@@ -15,7 +15,7 @@ public class Rating {
     @Column(name = "Customer_ID")
     public int CustomerID;
     @Column(name = "Rating")
-    public int Rating;
+    public float Rating;
     @Column(name = "Feedback")
     public String Feedback;
 }

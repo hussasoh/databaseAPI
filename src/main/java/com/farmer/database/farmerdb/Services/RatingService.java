@@ -31,4 +31,8 @@ public class RatingService {
         ratingRepository.deleteRatingByCustomerIDAndFarmID(FarmID,CustomerID);
         return "Deleted Rating with FarmID: "+ FarmID + " CustomerID: "+ CustomerID;
     }
+
+    public Rating getRatingByCustomerIDAndFarmID(int FarmID, int CustomerID){
+        return ratingRepository.getRatingByCustomerIDAndFarmID(FarmID, CustomerID);
+    }
 }

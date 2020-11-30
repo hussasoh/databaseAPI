@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FarmService {
@@ -32,6 +33,21 @@ public class FarmService {
 
     public List<Farm> FarmsByFarmerID(int id){
         return farmRepository.getFarmsByFarmerID(id);
+    }
+
+    public Farm UpdateFarmByFarmID(Farm farm){
+        Farm existingFarm = farmRepository.findById(farm.FarmID).orElse(null);
+        if(existingFarm != null){
+            existingFarm.Business_Description = farm.Business_Description;
+            existingFarm.Businsess_Name = farm.Businsess_Name;
+            existingFarm.City = farm.City;
+            existingFarm.Country = farm.Country;
+            existingFarm.PostalCode = farm.PostalCode;
+            existingFarm.Street = farm.Street;
+            existingFarm.Unit = farm.Unit;
+            return farmRepository.save(existingFarm);
+        }
+        return null;
     }
 
 }

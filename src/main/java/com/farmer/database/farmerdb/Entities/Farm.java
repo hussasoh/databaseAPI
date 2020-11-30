@@ -14,7 +14,7 @@ public class Farm {
     @Column(name = "Business_Description")
     public String Business_Description;
     @Column(name = "Business_Rating")
-    public int Business_Rating;
+    public float Business_Rating;
     @Column(name = "City")
     public String City;
     @Column(name = "Street")
