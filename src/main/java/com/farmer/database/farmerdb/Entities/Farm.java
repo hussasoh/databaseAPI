@@ -10,7 +10,7 @@ public class Farm {
     @Column(name = "Farm_ID")
     public int FarmID;
     @Column(name = "Business_Name")
-    public String Businsess_Name;
+    public String Business_Name;
     @Column(name = "Business_Description")
     public String Business_Description;
     @Column(name = "Business_Rating")

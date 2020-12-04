@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class FarmService {
@@ -39,7 +38,7 @@ public class FarmService {
         Farm existingFarm = farmRepository.findById(farm.FarmID).orElse(null);
         if(existingFarm != null){
             existingFarm.Business_Description = farm.Business_Description;
-            existingFarm.Businsess_Name = farm.Businsess_Name;
+            existingFarm.Business_Name = farm.Business_Name;
             existingFarm.City = farm.City;
             existingFarm.Country = farm.Country;
             existingFarm.PostalCode = farm.PostalCode;

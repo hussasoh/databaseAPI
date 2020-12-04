@@ -56,6 +56,10 @@ public class FollowingService {
         return farms;
     }
 
+    public int getFollowCountForFarm(int id){
+        return followingRepository.getFollowCountByFarmID(id);
+    }
+
     //delete
     public String deleteFollowByCustomerIDandFarmID(int FarmID,int CustomerID){
         followingRepository.deleteFollowByCustomerIDAndFarmID(FarmID,CustomerID);

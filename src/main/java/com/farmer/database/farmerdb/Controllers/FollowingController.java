@@ -29,6 +29,9 @@ public class FollowingController {
     @GetMapping("/getFollowedFarmsByCustomerID/{id}")
     public List<Farm> getFollowedFarmsByCustomerID(@PathVariable int id){ return followingService.GetFollowedFarmsByCustomerID(id); }
 
+    @GetMapping("/getFarmFollowers/{id}")
+    public int getFarmFollowers(@PathVariable int id){ return followingService.getFollowCountForFarm(id); }
+
     @PutMapping("/deleteFollowByCustomerIDAndFarmID/{FarmID}/{CustomerID}")
     public String deleteFollowByCustomerIDAndFarmID(@PathVariable int FarmID,@PathVariable int CustomerID){ return followingService.deleteFollowByCustomerIDandFarmID(FarmID, CustomerID); }
 }

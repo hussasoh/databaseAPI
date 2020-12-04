@@ -7,6 +7,7 @@ import com.farmer.database.farmerdb.Repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -50,5 +51,10 @@ public class ProductService {
         existingProduct.ProductName = product.ProductName;
         existingProduct.ProductCategory = product.ProductCategory;
         return productRepository.save(existingProduct);
+    }
+
+    //options function
+    public List<String> getProductOptions(){
+        return productRepository.getProductOptions();
     }
 }
