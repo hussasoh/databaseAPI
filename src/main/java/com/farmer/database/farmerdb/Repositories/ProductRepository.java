@@ -17,4 +17,12 @@ public interface ProductRepository extends JpaRepository<Product,Integer> {
 
     @Query(value = "SELECT DISTINCT Product_Category from Product", nativeQuery = true)
     List<String> getProductOptions();
+
+    @Query(value = "SELECT * from Product WHERE upper(Product_Name) like upper(?1) AND upper(Product_Category) like upper(?2)", nativeQuery = true)
+    Product getProductByNameAndCategory(String productName, String productCategory);
+
+    @Query(value = "SELECT Product_ID from Product WHERE upper(Product_Name) like upper(?1) AND upper(Product_Category) like upper(?2)", nativeQuery = true)
+    int getProductIDByNameAndCategory(String productName, String productCategory);
+
+
 }

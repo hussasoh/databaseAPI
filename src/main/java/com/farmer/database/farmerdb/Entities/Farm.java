@@ -23,6 +23,8 @@ public class Farm {
     public String Country;
     @Column(name = "PostalCode")
     public String PostalCode;
+    @Column(name = "Province")
+    public String Province;
     @Column(name = "Unit")
     public int Unit;
     @Column(name = "Farmer_ID")

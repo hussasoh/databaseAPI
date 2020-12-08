@@ -77,11 +77,15 @@ public class FarmProductService {
         return farms;
     }
 
+    public FarmProduct getFarmProductByFarmIDAndProductID(int farmid,int productid){
+        return farmProductRepository.getFarmProductByFarmIDAndProductID(farmid, productid);
+    }
+
     //Update
-    public FarmProduct UpdateQuantity(int id,int quantity){
-        FarmProduct existingfarmProduct = farmProductRepository.findById(id).orElse(null);
+    public FarmProduct UpdateQuantity(FarmProduct farmProduct){
+        FarmProduct existingfarmProduct = farmProductRepository.findById(farmProduct.FarmProductID).orElse(null);
         if (existingfarmProduct != null){
-            existingfarmProduct.Quantity = quantity;
+            existingfarmProduct.Quantity = farmProduct.Quantity;
             return farmProductRepository.save(existingfarmProduct);
         }
         else{

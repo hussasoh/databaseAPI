@@ -41,12 +41,17 @@ public class FarmProductController {
     @GetMapping("/FarmsByProductID/{id}")
     public List<Farm> getFarmersByProductID(@PathVariable int id){ return farmProductService.getFarmsByProduct(id); }
 
+    @GetMapping("/FarmProductByFarmIDAndProductID/{farmid}/{productid}")
+    public FarmProduct getFarmProductByFarmIDAndProductID(@PathVariable int farmid, @PathVariable int productid){
+        return farmProductService.getFarmProductByFarmIDAndProductID(farmid, productid);
+    }
+
     @GetMapping("/ProductsByFarmID/{id}")
     public List<Product> getProductsByFarmerID(@PathVariable int id){ return farmProductService.getProductsByFarm(id); }
 
-    @PutMapping("/UpdateFarmProductQuantity/{id}/{quantity}")
-    public FarmProduct updateQuantity(@PathVariable int id,@PathVariable int quantity){
-        return farmProductService.UpdateQuantity(id,quantity);
+    @PutMapping("/UpdateFarmProductQuantity")
+    public FarmProduct updateQuantity(@RequestBody FarmProduct farmProduct){
+        return farmProductService.UpdateQuantity(farmProduct);
     }
 
 }

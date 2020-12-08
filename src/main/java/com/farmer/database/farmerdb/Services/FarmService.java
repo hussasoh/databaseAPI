@@ -42,6 +42,7 @@ public class FarmService {
             existingFarm.City = farm.City;
             existingFarm.Country = farm.Country;
             existingFarm.PostalCode = farm.PostalCode;
+            existingFarm.Province = farm.Province;
             existingFarm.Street = farm.Street;
             existingFarm.Unit = farm.Unit;
             return farmRepository.save(existingFarm);

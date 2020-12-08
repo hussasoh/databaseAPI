@@ -18,6 +18,10 @@ public class ProductService {
 
     //Save one Product
     public Product saveProduct(Product product){
+        Product product1 = productRepository.getProductByNameAndCategory(product.ProductName,product.ProductCategory);
+        if(product1 != null){
+            return null;
+        }
         return productRepository.save(product);
     }
     //Save a list of Products
@@ -56,5 +60,9 @@ public class ProductService {
     //options function
     public List<String> getProductOptions(){
         return productRepository.getProductOptions();
+    }
+
+    public int getProductIDByNameAndCategory(String productName, String productCategory){
+        return productRepository.getProductIDByNameAndCategory(productName,productCategory);
     }
 }

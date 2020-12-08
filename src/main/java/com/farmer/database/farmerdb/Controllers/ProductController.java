@@ -16,9 +16,7 @@ public class ProductController {
     private ProductService productService;
 
     @PostMapping("/addProduct")
-    public Product addProduct(@RequestBody Product product){
-        return productService.saveProduct(product);
-    }
+    public Product addProduct(@RequestBody Product product){ return productService.saveProduct(product); }
 
     @PostMapping("/addProducts")
     public List<Product> addProduct(@RequestBody List<Product> products){ return productService.saveProducts(products); }
@@ -38,6 +36,9 @@ public class ProductController {
     public Product getProductByID(@PathVariable int id){
         return productService.getProductById(id);
     }
+
+    @GetMapping("/ProductIDByNameAndCategory/{name}/{category}")
+    public int getProductIDByNameAndCategory(@PathVariable String name, @PathVariable String category){ return productService.getProductIDByNameAndCategory(name,category); }
 
     @PutMapping("/updateProduct")
     public Product updateProduct(@RequestBody Product product){
