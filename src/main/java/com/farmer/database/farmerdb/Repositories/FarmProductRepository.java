@@ -8,6 +8,10 @@ import org.springframework.data.jpa.repository.Query;
 import javax.transaction.Transactional;
 import java.util.List;
 
+/**
+ * @author Sohaib Hussain
+ * Date Modified: December 14th, 2020
+ **/
 public interface FarmProductRepository extends JpaRepository<FarmProduct,Integer> {
 
     @Query(value = "SELECT DISTINCT Product_ID FROM Farm_Products WHERE Farm_ID = ?1", nativeQuery = true)

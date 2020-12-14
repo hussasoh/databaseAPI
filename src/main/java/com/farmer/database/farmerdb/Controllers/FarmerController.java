@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * @author Sohaib Hussain
+ * Date Modified: December 14th, 2020
+ **/
 @RestController
 public class FarmerController {
 

@@ -2,6 +2,10 @@ package com.farmer.database.farmerdb.Entities;
 
 import javax.persistence.*;
 
+/**
+ * @author Sohaib Hussain
+ * Date Modified: December 14th, 2020
+ **/
 @Entity
 public class Product {
 

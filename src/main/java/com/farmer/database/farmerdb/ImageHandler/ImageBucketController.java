@@ -10,6 +10,10 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.ByteArrayOutputStream;
 import java.util.List;
 
+/**
+ * @author Sohaib Hussain
+ * Date Modified: December 14th, 2020
+ **/
 @RestController
 @RequestMapping("/storage/")
 public class ImageBucketController {

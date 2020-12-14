@@ -1,15 +1,16 @@
 package com.farmer.database.farmerdb.Services;
 
 
-import com.farmer.database.farmerdb.Entities.Customer;
 import com.farmer.database.farmerdb.Entities.Product;
 import com.farmer.database.farmerdb.Repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.HashMap;
 import java.util.List;
 
+/**
+ * @author Sohaib Hussain
+ * Date Modified: December 14th, 2020
+ **/
 @Service
 public class ProductService {
 

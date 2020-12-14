@@ -8,6 +8,10 @@ import org.springframework.data.jpa.repository.Query;
 import javax.transaction.Transactional;
 import java.util.List;
 
+/**
+ * @author Sohaib Hussain
+ * Date Modified: December 14th, 2020
+ **/
 public interface RatingRepository extends JpaRepository<Rating,Integer> {
 
     @Query(value = "SELECT * FROM Customer_Ratings WHERE Farm_ID = ?1", nativeQuery = true)

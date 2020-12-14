@@ -7,6 +7,10 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * @author Sohaib Hussain
+ * Date Modified: December 14th, 2020
+ **/
 public interface ProductRepository extends JpaRepository<Product,Integer> {
 
     @Query(value = "SELECT * FROM Product WHERE Product_Name = ?1", nativeQuery = true)
