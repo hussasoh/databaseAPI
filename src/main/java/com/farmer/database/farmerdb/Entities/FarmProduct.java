@@ -19,4 +19,8 @@ public class FarmProduct {
 
     @Column(name = "Quantity")
     public int Quantity;
+
+    @Column(name = "Unit")
+    public String Unit;
+
 }

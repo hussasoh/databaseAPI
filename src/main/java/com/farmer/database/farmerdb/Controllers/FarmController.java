@@ -29,9 +29,7 @@ public class FarmController {
     }
 
     @GetMapping("/Farms")
-    public List<Farm> getAllFarms(){
-        return farmService.getAllFarms();
-    }
+    public List<Farm> getAllFarms(){ return farmService.getAllFarms(); }
 
     @GetMapping("/FarmsByFarmerID/{id}")
     public List<Farm> FarmsByFarmerID(@PathVariable int id){

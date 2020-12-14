@@ -86,6 +86,7 @@ public class FarmProductService {
         FarmProduct existingfarmProduct = farmProductRepository.findById(farmProduct.FarmProductID).orElse(null);
         if (existingfarmProduct != null){
             existingfarmProduct.Quantity = farmProduct.Quantity;
+            existingfarmProduct.Unit = farmProduct.Unit;
             return farmProductRepository.save(existingfarmProduct);
         }
         else{
