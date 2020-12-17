@@ -21,10 +21,7 @@ public class FarmProduct {
     @Column(name = "Product_ID")
     public int ProductID;
 
-    @Column(name = "Quantity")
-    public int Quantity;
-
-    @Column(name = "Unit")
-    public String Unit;
+    @Column(name = "Status")
+    public String Status;
 
 }

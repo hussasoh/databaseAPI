@@ -53,9 +53,9 @@ public class FarmProductController {
     @GetMapping("/ProductsByFarmID/{id}")
     public List<Product> getProductsByFarmerID(@PathVariable int id){ return farmProductService.getProductsByFarm(id); }
 
-    @PutMapping("/UpdateFarmProductQuantity")
-    public FarmProduct updateQuantity(@RequestBody FarmProduct farmProduct){
-        return farmProductService.UpdateQuantity(farmProduct);
+    @PutMapping("/UpdateFarmProductStatus")
+    public FarmProduct updateStatus(@RequestBody FarmProduct farmProduct){
+        return farmProductService.UpdateStatus(farmProduct);
     }
 
 }

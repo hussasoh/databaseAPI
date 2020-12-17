@@ -86,11 +86,10 @@ public class FarmProductService {
     }
 
     //Update
-    public FarmProduct UpdateQuantity(FarmProduct farmProduct){
+    public FarmProduct UpdateStatus(FarmProduct farmProduct){
         FarmProduct existingfarmProduct = farmProductRepository.findById(farmProduct.FarmProductID).orElse(null);
         if (existingfarmProduct != null){
-            existingfarmProduct.Quantity = farmProduct.Quantity;
-            existingfarmProduct.Unit = farmProduct.Unit;
+            existingfarmProduct.Status = farmProduct.Status;
             return farmProductRepository.save(existingfarmProduct);
         }
         else{
